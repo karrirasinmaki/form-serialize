@@ -22,7 +22,7 @@ var brackets = /(\[[^\[\]]*\])/g;
 //    hash and url encoded str serializers are provided with this module
 //    - disabled: [true | false]. If true serialize disabled fields.
 //    - empty: [true | false]. If true serialize empty fields
-function serialize(form, options) {
+export default function serialize(form, options) {
     if (typeof options != 'object') {
         options = { hash: !!options };
     }
@@ -256,5 +256,3 @@ function str_serialize(result, key, value) {
     value = value.replace(/%20/g, '+');
     return result + (result ? '&' : '') + encodeURIComponent(key) + '=' + value;
 }
-
-module.exports = serialize;
